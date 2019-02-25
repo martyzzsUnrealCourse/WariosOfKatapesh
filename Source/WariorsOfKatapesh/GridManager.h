@@ -37,6 +37,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 	TArray<FVector> TileLocations;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UStaticMeshComponent *ColisionPlane;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -57,5 +60,7 @@ private:
 	void AddTile(TArray<UGridTileComponent*> &TileArray, UGridTileComponent *Tile);
 
 	void GenerateTileLocations();
+
+	int ScaleXOld = 0, ScaleYOld = 0;
 
 };
